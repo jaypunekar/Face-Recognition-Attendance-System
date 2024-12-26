@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+        }
+        .options {
+            margin-top: 50px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .upload-btn {
+            background-color: #28a745;
+        }
+        .upload-btn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Face Recognition based Attendance System</h1>
+    <h1>COEP Technological University, Pune</h1>
+    <h1>PGDDSAI</h1>
+    <p>Select an option to proceed:</p>
+    <div class="options">
+        <a href="{{ url_for('video_stream') }}" class="btn">Turn On Video</a>
+        <a href="{{ url_for('mark_attendance') }}" class="btn upload-btn">Upload a Photo</a>
+    </div>
+    
+</body>
+</html>

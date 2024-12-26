@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+</head>
+<body>
+    <h1>Attendance Records</h1>
+    <button onclick="window.location.href='{{ url_for('home') }}'">Home</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in attendance %}
+                <tr>
+                    <td>{{ record[0] }}</td>  <!-- ID -->
+                    <td>{{ record[1] }}</td>  <!-- Name -->
+                    <td>{{ record[2] }}</td>  <!-- Timestamp -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

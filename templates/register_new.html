@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register New Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .uploaded-image {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <button onclick="window.location.href='{{ url_for('home') }}'">Home</button>
+        <h1>Register New Student</h1>
+        {% if message %}
+            <p class="success-message">{{ message }}</p>
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            <label for="name">Student Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="image">Upload Image in format (Name_IDno):</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <button type="submit">Register</button>
+        </form>
+        {% if uploaded_image_url %}
+            <div>
+                <h2>Uploaded Image:</h2>
+                <img src="{{ uploaded_image_url }}" alt="Uploaded Student Image" class="uploaded-image">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

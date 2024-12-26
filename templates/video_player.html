@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Live Streaming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        h3 {
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #333;
+        }
+        img {
+            max-width: 480px;
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="window.location.href='{{ url_for('home') }}'">Home</button>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h3 class="mt-5">Live Streaming</h3>
+                <!-- video_player.html -->
+                <img src="{{ url_for('video_stream_bp.video_feed') }}" alt="Live Video Feed">
+            </div>
+        </div>
+        <button onclick="window.location.href='{{ url_for('register_student') }}'">Register New Student</button>
+        <button onclick="window.location.href='{{ url_for('attendance') }}'">Attendance Logs</button>
+    </div>
+</body>
+</html>
